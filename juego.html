@@ -1,0 +1,81 @@
+@ -1,77 +0,0 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUEGO DEL AHORCADO</title>
+    <link rel="preload" href="css/normalize.css" as="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/styleJuego.css" as="stylesheet">
+    <link rel="stylesheet" href="css/styleJuego.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="pantallaJuego">
+        <div id="recuadroSuperior">
+            <img src="img/ahorcado__parte1.jpeg" alt="Inicio Ahorcado" id="ImagenAhorcado">
+            <h3 id="acierto">Bien!</h3>
+            <div id="botones-container">
+                <div id="botones">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>Ñ</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>W</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>Z</button>
+                </div>
+            </div>
+        </div>
+        <div id="recuadroMedio">
+            <p id="palabra">
+                <span>_</span><span>_</span><span>_</span><span>_</span>
+            </p>
+        </div>
+    </div>
+    <div id="recuadroInferior">
+        <div id="footer">
+            <h1>JUEGO DEL AHORCADO</h1>
+            <div id="turnos">
+                <div id= "intentosRestantes">
+                    <h3>INTENTOS RESTANTES: <span id="intentos">6</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <h1 id="finPartida">PARTIDA FINALIZADA</h1>
+        <div id="textoFinal" >
+            <p>Palabra correcta: </p> <p id="palabraCorrecta">(hay que sustituir en js)</p>
+        </div>
+        <p id="msgFinal">Aqui colocar Felicidades o Intenta de nuevo</p>
+        <div id="botonesPopUp"><button id="Inicio">Inicio</button><button id="Reintentar">Reintentar</button></div>
+    </div>
+    <div id="fondoOscuro"></div>
+    <script src="scripts/scriptJuego.js"></script>
+</body>
+</html>
