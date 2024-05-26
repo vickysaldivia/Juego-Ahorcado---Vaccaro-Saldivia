@@ -166,7 +166,7 @@ h1, h2, h3, p {
 }
 .popup {
     width: 40%;
-    /* display:inline-block; */
+   /* display:inline-block; */
     display: none;
     position: fixed;
     top: 40%;
