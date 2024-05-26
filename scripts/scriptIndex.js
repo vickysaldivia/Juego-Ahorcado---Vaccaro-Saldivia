@@ -1,18 +1,29 @@
+/* 
+* función para mostrar el fondo para el popup
+*/
 function mostrarFondoOscuro() {
     const fondoOscuro = document.getElementById("fondoOscuro")
     fondoOscuro.style.display = "block";
 }
+
+/*
+* Función que permite mostrar el popup de instrucciones
+*/
 function mostrarInstruccion() {
     const ventanaContenedor = document.getElementById("ventanaContenedor");
     ventanaContenedor.style.display = "block";
 }
 
+/* 
+* función para ocultar el fondo para el popup
+*/
 function ocultar() {
     const ocultarVentana = document.getElementById("ventanaContenedor");
     ocultarVentana.style.display = "none";
     const fondoOscuro = document.getElementById("fondoOscuro")
     fondoOscuro.style.display = "none";
 }
+
 
 document.addEventListener("DOMContentLoaded", function(){
     actualizarTabla();
@@ -30,6 +41,7 @@ document
       window.location.href = "juego.html";
 });
 
+
 function formularioJugador() {
     const datos = document.getElementById("datosJugador")
     datos.style.display = "block";
@@ -38,6 +50,7 @@ function mostrarInstruccion2() {
     const ventanaContenedor = document.getElementById("ventanaContenedor2");
     ventanaContenedor.style.display = "block";
 }
+
 
 function actualizarTabla () {
     // Obtener la tabla de mejores puntajes

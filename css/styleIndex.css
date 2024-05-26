@@ -113,11 +113,13 @@ img {
 .formulario__boton {
     display: flex;
     justify-content: center;
+    gap: .5rem;
 }
 
 @media (min-width: 768px) {
     .formulario__boton {
-        justify-content: flex-end;
+        justify-content: space-between;
+        margin: 0 1.5rem;
     }
 }
 .formulario__info {
@@ -233,6 +235,7 @@ table {
     table-layout: fixed;
     border: 1px solid var(--negro);
     padding: 1rem;
+    margin-bottom: 5rem;
 }
 @media (min-width: 768px) {
     table {

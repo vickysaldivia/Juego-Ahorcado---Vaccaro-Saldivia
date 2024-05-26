@@ -1,8 +1,14 @@
+/* 
+* función para mostrar el fondo para el popup
+*/
 function mostrarFondoOscuro() {
     var fondoOscuro = document.getElementById("fondoOscuro");
     fondoOscuro.style.display = "block";
 }
 
+/* 
+* función para ocultar el fondo para el popup
+*/
 function ocultarFondoOscuro() {
     var fondoOscuro = document.getElementById("fondoOscuro");
     fondoOscuro.style.display = "none";
@@ -13,6 +19,7 @@ let puntos = 0; // Variable global. Puntos acumulados
 let palabra = ""; // Variable global. Palabra escogida
 let categoria = ""; // Variable global. Categoría
 
+/* categorias de las palabras*/
 const categorias = {
     "PAISES": [
         "Argentina", "Brasil", "Chile", "Uruguay", "Paraguay", "Peru", "Bolivia", 
@@ -57,6 +64,11 @@ const categorias = {
     ]
 };
 
+
+/*
+* al usar los botones Inicio y Reintentar, se dirige a la página correspondiente
+*/
+
 document.getElementById("Inicio").addEventListener("click", function() {
     window.location.href = "index.html";
 });
@@ -64,6 +76,10 @@ document.getElementById("Reintentar").addEventListener("click", function() {
     window.location.href = "juego.html";
 });
 
+
+/*
+* mostrar nombre del jugador en pantalla
+*/
 document.addEventListener("DOMContentLoaded", function(){
     // Verificar si hay datos de partida en el localStorage
     let partidaGuardada = localStorage.getItem("partida");
@@ -90,8 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(palabra)
 });
 
-// Funcion para obtener una palabra aleatoria de una lista
-// La lista elegida dependerá de la categoria (session storage)
+/* 
+* Funcion para obtener una palabra aleatoria de una lista
+* La lista elegida dependerá de la categoria (session storage)
+*/
 function obtenerPalabra(){
     // Array de las claves que se encuentran en el Objeto de categorías
     let claves = Object.keys(categorias);
@@ -110,7 +128,10 @@ function obtenerPalabra(){
 };
 
 
-// Funcion para pintar guiones dependiendo del largo de la palabra
+/*
+* Funcion para pintar guiones dependiendo del largo de la palabra
+* @param palabra, define la palabra seleccionada al azar desde el objeto categoría 
+*/
 function establecerGuiones(palabra){
     // Obtener el espacio donde se colocarán los guiones
     let guiones = document.getElementById("palabra");
@@ -125,7 +146,10 @@ function establecerGuiones(palabra){
     }
 };
 
-// Función para verificar si la letra escogida se encuentra dentro de la palabra a adivinar
+/*
+* Función para verificar si la letra escogida se encuentra dentro de la palabra a adivinar
+* @param letra, define la letra que ha sido seleccionada a través de un boton
+*/  
 function verificarLetra(letra){
     // Se obtienen los span donde se colocarán las letras si existen
     let guiones = document.getElementById("palabra").getElementsByTagName("span");
@@ -148,17 +172,17 @@ function verificarLetra(letra){
     comprobarfin();
 }
 
-// Función que permite mostrar el muñeco a medida de que 
+/* 
+* Función que permite mostrar el muñeco a medida de que pasen los intentos
+*/
 function cambiarImagen(){
     let imagen = document.getElementById("ImagenAhorcado");
-    if(turno<= 5){
-        imagen.src = "img/ahorcado__" + turno + ".jpg";
-    }else{
-        imagen.src = "img/ahorcado__" + turno + ".jpeg";
-    }
+    imagen.src = "img/ahorcado__" + turno +".png";
 };
 
-// Función que verifica si quedan letras por adivinar
+/*
+* Función que verifica si quedan letras por adivinar
+*/
 function verificarSpans() {
     let spans = document.querySelectorAll("#palabra span");
     let quedanSpans = false;
@@ -172,7 +196,9 @@ function verificarSpans() {
     return quedanSpans;
 }
 
-// Función que verifica si se debe finalizar el juego
+/*
+* Función que verifica si se debe finalizar el juego
+*/
 function comprobarfin(){
     let acertar = true;
     if(verificarSpans() == false || turno == 0){
@@ -203,7 +229,9 @@ function comprobarfin(){
     }
 }
 
-// Función que actualiza los turnos en caso de perder alguno
+/*
+* Función que actualiza los turnos en caso de perder alguno
+*/
 function actualizarTurno(){
     let turnos = document.getElementById("intentos");
     turnos.textContent = turno;
@@ -212,7 +240,11 @@ function actualizarTurno(){
     }
 }
 
-// Función que hace desaparecer los botones al seleccionarlos
+
+/*
+* Función que hace desaparecer los botones al seleccionarlos
+* @param letra, define la letra que fue seleccionada mediante el boton
+*/
 function desaparecerBoton(letra){
     // Selecciona todas las estructuras "botón"
     const botones = document.querySelectorAll('.boton');
@@ -227,11 +259,18 @@ function desaparecerBoton(letra){
     });
 };
 
-// Función que va actualizando el puntaje en pantalla
+/*
+* Función que va actualizando el puntaje en pantalla
+*/
 function actualizarPuntaje(){
     document.getElementById("puntaje").textContent = puntos;
 }
 
+/*
+* Función que permite llenar los datos del jugador en el Local Storage
+* @param puntos, define los puntos del jugador
+* @param acertar, define las palabras acertadas del jugador
+*/
 function llenarLocalStorage(puntos, acertar){
     let jugador = JSON.parse(sessionStorage.getItem("jugador"));
     agregarJugadorLocalStorage(jugador.nombre);
@@ -246,7 +285,10 @@ function llenarLocalStorage(puntos, acertar){
     localStorage.setItem(jugador.nombre, JSON.stringify(partida));
 }
 
-// Funcion para agregar a un jugador en el localStorage en caso de que no exista
+/*
+* Funcion para agregar a un jugador en el localStorage en caso de que no exista
+* @param name, define el nombre del jugador para ser agregado a la tabla
+*/
 function agregarJugadorLocalStorage(name){
     // Obtiene el valor del localStorage bajo el nombre del jugador
     let valorLocalStorage = JSON.parse(localStorage.getItem(name))
@@ -256,8 +298,9 @@ function agregarJugadorLocalStorage(name){
         localStorage.setItem(name, JSON.stringify({nombre: name, puntos: 0, palabras: 0}));
     }
 }
-
-// Funcion que deshabilita los botones al finalizar la partida
+/*
+* Funcion que deshabilita los botones al finalizar la partida
+*/
 function deshabilitarBotonesLetras() {
     const botonesLetras = document.querySelectorAll('.boton');
 
@@ -265,3 +308,4 @@ function deshabilitarBotonesLetras() {
         boton.disabled = true;
     });
 }
+
