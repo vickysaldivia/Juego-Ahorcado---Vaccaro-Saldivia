@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUEGO DEL AHORCADO</title>
-    <link rel="preload" href="css/normalize.css" as="stylesheet">
+    <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preload" href="css/styleIndex.css" as="stylesheet">
+    <link rel="preload" href="css/styleIndex.css" as="style">
     <link rel="stylesheet" href="css/styleIndex.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,22 +14,24 @@
 
 </head>
 <body>
-    <header class="contenedor ">
-      
-        <h1 class="titulo">El Ahorcado</h1>
-             
-        <div class="centrar">
-
-            <button class="abrirInstruccion centrar" onclick="mostrarInstruccion(); mostrarFondoOscuro()">
-                Instrucciones
-            </button>
-
-           
-        </div>         
+    <header class="contenedor">
+        <h1 class="titulo">El Ahorcado </h1>  
+        <p class="subtitulo">Victoria Saldivia y Giuseppe Vaccaro</p>         
     </header>
-    <button class="comienzaJuego" onclick="mostrarFondoOscuro(); formularioJugador(); mostrarInstruccion2()">
-        Empezar Juego
-    </button>
+   
+    <section class="inicio">
+        <div class="contenidoInicio">
+            <div class="botonesInicio">
+                <button class="boton comienzaJuego" onclick="mostrarFondoOscuro(); formularioJugador(); mostrarInstruccion2()">
+                    Empezar Juego
+                </button>
+                <button class="abrirInstruccion boton" onclick="mostrarInstruccion(); mostrarFondoOscuro()">
+                    Instrucciones
+                </button>
+            </div>
+        </div>
+    </section>
+    
 
 
 
@@ -46,31 +48,28 @@
                 <li>Y por último, no olvides poner tu nombre para encontrarte en la lista de ganadores!!!</li>
             </ol>
         </div> <!--  finaliza .ventana  -->
-        <div class="boton">
-            <button class="boton__regresar"   id="ocultarVentana" onclick="ocultar()">
+        <div class="flexEnd">
+            <button class="boton__regresar boton"   id="ocultarVentana" onclick="ocultar()">
                 regresar
             </button>
         </div>
     </div> <!-- finaliza .ventanaContenedor -->
 
     <div class="ventanaContenedor" id="ventanaContenedor2">
-        <form id="datosJugador">
-            <h1 class="titulo__ventana">Instrucciones</h1>
-            <div>
+        <form id="datosJugador" class="formulario">
+            <h1 class="titulo__ventana">Bienvenid@:</h1>
+            <div class="formulario__info">
                 <label>Nombre del Jugador</label>
-                <input type="text" id="jugador">
+                <input type="text" id="jugador" placeholder="Ingresa tu nombre">
             </div>
             <br>
-            <input type="submit" value="Enviar">
-        </form>
-        
- 
-        
+            <div class="flexEnd">
+                <input type="submit" value="continuar" class="boton formulario__boton">
+            </div>
+        </form>   
 
     </div> <!-- finaliza .ventanaContenedor -->
     
-
-
     <div id = "fondoOscuro">
 
     </div>
