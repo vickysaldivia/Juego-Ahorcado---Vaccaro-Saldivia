@@ -14,56 +14,79 @@
 
 </head>
 <body>
+    <header class="header">
+        <div class="header__contenido">
+            <h1 class="header__titulo">Juego del Ahorcado</h1>
+            <p class="header__intentos">Intentos Restantes: <span id="intentos"></span></p>
+        </div>
+    </header>
     <div id="pantallaJuego">
-        <div id="recuadroSuperior">
-            <img src="img/ahorcado__7.jpeg" alt="Inicio Ahorcado" id="ImagenAhorcado">
-            <h3 id="acierto">Bien!</h3>
-            <div id="botones-container">
-                <div id="botones">
-                    <button onclick="verificarLetra('Q')">Q</button>
-                    <button onclick="verificarLetra('W')">W</button>
-                    <button onclick="verificarLetra('E')">E</button>
-                    <button onclick="verificarLetra('R')">R</button>
-                    <button onclick="verificarLetra('T')">T</button>
-                    <button onclick="verificarLetra('Y')">Y</button>
-                    <button onclick="verificarLetra('U')">U</button>
-                    <button onclick="verificarLetra('I')">I</button>
-                    <button onclick="verificarLetra('O')">O</button>
-                    <button onclick="verificarLetra('P')">P</button>
-                    <button onclick="verificarLetra('A')">A</button>
-                    <button onclick="verificarLetra('S')">S</button>
-                    <button onclick="verificarLetra('D')">D</button>
-                    <button onclick="verificarLetra('F')">F</button>
-                    <button onclick="verificarLetra('G')">G</button>
-                    <button onclick="verificarLetra('H')">H</button>
-                    <button onclick="verificarLetra('J')">J</button>
-                    <button onclick="verificarLetra('K')">K</button>
-                    <button onclick="verificarLetra('L')">L</button>
-                    <button onclick="verificarLetra('Ñ')">Ñ</button>
-                    <button onclick="verificarLetra('Z')">Z</button>
-                    <button onclick="verificarLetra('X')">X</button>
-                    <button onclick="verificarLetra('C')">C</button>
-                    <button onclick="verificarLetra('V')">V</button>
-                    <button onclick="verificarLetra('B')">B</button>
-                    <button onclick="verificarLetra('N')">N</button>
-                    <button onclick="verificarLetra('M')">M</button>
-                </div>
+        <div class="imagenAhorcado-container">
+            <img src="img/ahorcado__7.jpg" alt="Ahorcado" id="ImagenAhorcado">
+        </div>
+
+        
+        <div class="infoJuego">
+            <div class="categoria">
+                <h2 class="infoJuego__titulo">Categoría</h2>
+                <p class="infoJuego__texto">Aquí va la categoria</p>
+
+            </div>
+            <div class="categoria">
+                <h2 class="infoJuego__titulo">Jugador</h2>
+                <p class="infoJuego__texto">Aquí va el nombre del jugador</p>
+            </div>
+            <div class="categoria">
+                <h2 class="infoJuego__titulo">Puntaje</h2>
+                <p class="infoJuego__texto">Aquí va el puntaje</p>
             </div>
         </div>
-        <div id="recuadroMedio">
-            <p id="palabra">
-            </p>
-        </div>
-    </div>
-    <div id="recuadroInferior">
-        <div id="footer">
-            <h1>JUEGO DEL AHORCADO</h1>
-            <div id="turnos">
-                <div id= "intentosRestantes">
-                    <h3>INTENTOS RESTANTES: <span id="intentos"></span></h3>
-                </div>
+        
+        <!-- <div class="palabraInfo"> -->
+            <div class="motivacion">
+                <h3 id="acierto">Bien!</h3>
+            </div>
+            <p id="palabra"></p>
+        <!-- </div> -->
+        
+        <div id="botones" class="botones-container">
+            <div class="seccion-contenedor">
+                <button class="boton" onclick="verificarLetra('Q')">Q</button>
+                <button class="boton" onclick="verificarLetra('W')">W</button>
+                <button class="boton" onclick="verificarLetra('E')">E</button>
+                <button class="boton" onclick="verificarLetra('R')">R</button>
+                <button class="boton" onclick="verificarLetra('T')">T</button>
+                <button class="boton" onclick="verificarLetra('Y')">Y</button>
+                <button class="boton" onclick="verificarLetra('U')">U</button>
+                <button class="boton" onclick="verificarLetra('I')">I</button>
+                <button class="boton" onclick="verificarLetra('O')">O</button>
+                <button class="boton" onclick="verificarLetra('P')">P</button>
+            </div>
+            <div class="seccion-contenedor">
+                <button class="boton" onclick="verificarLetra('A')">A</button>
+                <button class="boton" onclick="verificarLetra('S')">S</button>
+                <button class="boton" onclick="verificarLetra('D')">D</button>
+                <button class="boton" onclick="verificarLetra('F')">F</button>
+                <button class="boton" onclick="verificarLetra('G')">G</button>
+                <button class="boton" onclick="verificarLetra('H')">H</button>
+                <button class="boton" onclick="verificarLetra('J')">J</button>
+                <button class="boton" onclick="verificarLetra('K')">K</button>
+                <button class="boton" onclick="verificarLetra('L')">L</button>
+                <button class="boton" onclick="verificarLetra('Ñ')">Ñ</button>
+            </div>
+            <div class="seccion-contenedor">
+                <button class="boton" onclick="verificarLetra('Z')">Z</button>
+                <button class="boton" onclick="verificarLetra('X')">X</button>
+                <button class="boton" onclick="verificarLetra('C')">C</button>
+                <button class="boton" onclick="verificarLetra('V')">V</button>
+                <button class="boton" onclick="verificarLetra('B')">B</button>
+                <button class="boton" onclick="verificarLetra('N')">N</button>
+                <button class="boton" onclick="verificarLetra('M')">M</button>
+
             </div>
         </div>
+            
+       
     </div>
     <div id="popup" class="popup">
         <h1 id="finPartida">PARTIDA FINALIZADA</h1>
