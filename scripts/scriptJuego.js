@@ -115,11 +115,12 @@ function verificarLetra(letra){
         }
     }else{
         turno -= 1;
+        console.log(turno)
         actualizarTurno();
         cambiarImagen();
     }   
-        
     comprobarfin();
+    console.log(verificarSpans())
 }
 
 // Función que permite mostrar el muñeco a medida de que 
@@ -148,11 +149,12 @@ function verificarSpans() {
 
 // Función que verifica si se debe finalizar el juego
 function comprobarfin(){
-    // Evalúa si no quedan letras por adivinar o si no quedan turnos
+    console.log("antes")
     if(verificarSpans() == false || turno == 0){
         mostrarFondoOscuro();
         let popup = document.getElementById("popup");
         popup.style.display = "block";
+        mostrarFondoOscuro();
 
         let palabraCorrecta = document.getElementById("palabraCorrecta");
         palabraCorrecta.textContent = palabra;
