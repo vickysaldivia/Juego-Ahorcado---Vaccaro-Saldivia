@@ -22,7 +22,11 @@
     </header>
     <div id="pantallaJuego">
         <div class="imagenAhorcado-container">
+<<<<<<< Updated upstream
             <img src="img/ahorcado__7.jpg" alt="Ahorcado" id="ImagenAhorcado">
+=======
+            <img src="img/ahorcado__7.png" alt="Ahorcado" id="ImagenAhorcado">
+>>>>>>> Stashed changes
         </div>
 
         
@@ -43,9 +47,6 @@
         </div>
         
         <div class="palabraInfo"> 
-            <div class="motivacion">
-                <h3 id="acierto">Bien!</h3>
-            </div>
             <p id="palabra"></p>
         </div>
         
@@ -91,12 +92,27 @@
     <div id="popup" class="popup">
         <h1 id="finPartida">PARTIDA FINALIZADA</h1>
         <div id="textoFinal" >
+<<<<<<< Updated upstream
             <p>Palabra correcta: </p> <p id="palabraCorrecta"></p>
+=======
+            <div class="labelPopup">
+                <p>Palabra correcta:</p> <p id="palabraCorrecta"></p>
+            </div>
+            <div class="labelPopup">
+                <p>Puntaje final:</p>    <p id = "puntajeFinal"></p>
+
+            </div>
+>>>>>>> Stashed changes
         </div>
         <p id="msgFinal"></p>
-        <div id="botonesPopUp"><button id="Inicio">Inicio</button><button id="Reintentar">Reintentar</button></div>
+        <div id="botonesPopUp" class="formulario__boton">
+            <button id="Inicio" class="botonFormulario formulario__iniciar">Inicio</button>
+            <button id="Reintentar" class="botonFormulario formulario__reintentar">Reintentar</button>
+        </div>
     </div>
     <div id="fondoOscuro"></div>
     <script src="scripts/scriptJuego.js"></script>
 </body>
 </html>
+
+
