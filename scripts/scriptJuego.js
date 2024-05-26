@@ -85,7 +85,10 @@ function obtenerPalabra(){
 
 // Funcion para pintar guiones dependiendo del largo de la palabra
 function establecerGuiones(palabra){
+    // Obtener el espacio donde se colocarán los guiones
     let guiones = document.getElementById("palabra");
+
+    // Asignar guiones según sea necesario
     for(let i = 0; i < palabra.length; i++){
         if (palabra[i] === " "){
             guiones.innerHTML += "<span>" + " "+"</span>";
@@ -97,10 +100,14 @@ function establecerGuiones(palabra){
 
 // Función para verificar si la letra escogida se encuentra dentro de la palabra a adivinar
 function verificarLetra(letra){
+    // Se obtienen los span donde se colocarán las letras si existen
     let guiones = document.getElementById("palabra").getElementsByTagName("span");
+    
+    // Verificar si la letra existe o no
     if(palabra.toLowerCase().includes(letra.toLowerCase())){
+
+        // Sustituir la letra en cada espacio donde exista
         for(let i = 0; i < palabra.length; i++){
-            console.log(letra.toLowerCase(),palabra[i].toLowerCase())
             if(letra.toLowerCase() == palabra[i].toLowerCase()){
                 guiones[i].textContent = letra.toUpperCase();
             }
@@ -109,7 +116,6 @@ function verificarLetra(letra){
     }else{
         turno -= 1;
         actualizarTurno();
-        console.log(turno);
         cambiarImagen();
     }   
         
@@ -126,6 +132,7 @@ function cambiarImagen(){
     }
 };
 
+// Función que verifica si quedan letras por adivinar
 function verificarSpans() {
     let spans = document.querySelectorAll("#palabra span");
     let quedanSpans = false;
@@ -139,7 +146,9 @@ function verificarSpans() {
     return quedanSpans;
 }
 
+// Función que verifica si se debe finalizar el juego
 function comprobarfin(){
+    // Evalúa si no quedan letras por adivinar o si no quedan turnos
     if(verificarSpans() == false || turno == 0){
         mostrarFondoOscuro();
         let popup = document.getElementById("popup");
@@ -160,6 +169,7 @@ function comprobarfin(){
     }
 }
 
+// Función que actualiza los turnos en caso de perder alguno
 function actualizarTurno(){
     let turnos = document.getElementById("intentos");
     turnos.textContent = turno;
@@ -168,8 +178,9 @@ function actualizarTurno(){
     }
 }
 
+// Función que hace desaparecer los botones al seleccionarlos
 function desaparecerBoton(){
-    
+
 }
 
 //jugador {nombre: a; puntaje: a; acierto: }
