@@ -31,6 +31,58 @@
             </div>
         </div>
     </section>
+
+    <div class="contenedor centrar">
+        <table id="tablero">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Jugador</th>
+                    <th>Puntaje</th>
+                    <th>Palabras Acertadas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+
     
 
 
@@ -41,11 +93,11 @@
         <div class="ventana">
             <h1 class="titulo__ventana">Instrucciones</h1>
             <ol class="instruccion__ventana">
-                <li>Tienes 8 intentos antes de que tu muñequito muera</li>
+                <li>Tienes 6 intentos antes de que tu muñequito muera</li>
                 <li>Por cada letra acertada ganas +1 punto</li>
-                <li>Por cada palabra acertada ganas +20 puntos</li>
+                <li>Por cada palabra acertada ganas +5 puntos</li>
                 <li>Antes de comenzar debes escoger una categoría de tu preferencia</li>
-                <li>Y por último, no olvides poner tu nombre para encontrarte en la lista de ganadores!!!</li>
+                <li>!No olvides poner tu nombre para encontrarte en la lista de ganadores!</li>
             </ol>
         </div> <!--  finaliza .ventana  -->
         <div class="flexEnd">
@@ -59,12 +111,12 @@
         <form id="datosJugador" class="formulario">
             <h1 class="titulo__ventana">Bienvenid@:</h1>
             <div class="formulario__info">
-                <label>Nombre del Jugador</label>
-                <input type="text" id="jugador" placeholder="Ingresa tu nombre">
+                <label class="etiquetaNombre">Nombre del Jugador</label>
+                <input type="text" id="jugador" placeholder="Ingresa tu nombre" class="inputNombre">
             </div>
             <br>
-            <div class="flexEnd">
-                <input type="submit" value="continuar" class="boton formulario__boton">
+            <div class="formulario__boton">
+                <input type="submit" value="continuar" class="boton">
             </div>
         </form>   
 
