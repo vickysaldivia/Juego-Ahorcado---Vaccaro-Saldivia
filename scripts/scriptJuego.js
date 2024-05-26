@@ -25,10 +25,10 @@ const categorias = {
         "Argentina", "Brasil", "Chile", "Uruguay", "Paraguay", "Peru", "Bolivia", 
         "Ecuador", "Colombia", "Venezuela", "Guyana", "Surinam", "Estados Unidos", 
         "Canada", "Mexico", "Guatemala", "Honduras", "El Salvador", "Nicaragua", 
-        "Costa Rica", "Panama", "Cuba", "República Dominicana", "Haití", "Jamaica", 
+        "Costa Rica", "Panama", "Cuba", "Republica Dominicana", "Haiti", "Jamaica", 
         "Puerto Rico", "España", "Portugal", "Francia", "Alemania", "Italia", 
         "Reino Unido", "Irlanda", "Noruega", "Suecia", "Dinamarca", "Finlandia", 
-        "Polonia", "Ucrania", "Rusia", "China", "Japón", "Corea del Sur", "India", 
+        "Polonia", "Ucrania", "Rusia", "China", "Japon", "Corea del Sur", "India", 
         "Australia", "Nueva Zelanda", "Sudafrica", "Egipto", "Nigeria", "Kenia"
     ],
     "ADJETIVOS": [
@@ -64,27 +64,46 @@ const categorias = {
     ]
 };
 
-<<<<<<< Updated upstream
-=======
+
 /*
 * al usar los botones Inicio y Reintentar, se dirige a la página correspondiente
 */
+
 document.getElementById("Inicio").addEventListener("click", function() {
     window.location.href = "index.html";
 });
 document.getElementById("Reintentar").addEventListener("click", function() {
     window.location.href = "juego.html";
 });
->>>>>>> Stashed changes
+
 
 /*
 * mostrar nombre del jugador en pantalla
 */
 document.addEventListener("DOMContentLoaded", function(){
-    palabra = obtenerPalabra();
-    establecerGuiones(palabra);
+    // Verificar si hay datos de partida en el localStorage
+    let partidaGuardada = localStorage.getItem("partida");
+    document.getElementById("nombre").textContent = JSON.parse(sessionStorage.getItem("jugador")).nombre;
+
+    if (partidaGuardada) {
+        // Si hay datos de partida, cargarlos
+        let partida = JSON.parse(partidaGuardada);
+        palabra = partida.palabra;
+        categoria = partida.categoria;
+        document.getElementById("categoria").textContent = categoria;
+
+        // Restaurar la partida en la interfaz
+        establecerGuiones(palabra);
+        actualizarTurno();
+        actualizarPuntaje();
+    } else {
+        // Si no hay datos de partida, iniciar una nueva partida
+        palabra = obtenerPalabra();
+        establecerGuiones(palabra);
+        actualizarTurno();
+        localStorage.setItem("partida", JSON.stringify({palabra: palabra, categoria: categoria}));
+    }
     console.log(palabra)
-    actualizarTurno();
 });
 
 /* 
@@ -100,6 +119,8 @@ function obtenerPalabra(){
     
     // Obtener la categoría en el índice
     categoria = claves[indexCategoria];
+    document.getElementById("categoria").textContent = categoria;
+
 
     // Evaluar el valor de la categoría obtenida para escoger la palabra
     const randomIndex = Math.floor(Math.random() * categorias[categoria].length);
@@ -132,23 +153,22 @@ function establecerGuiones(palabra){
 function verificarLetra(letra){
     // Se obtienen los span donde se colocarán las letras si existen
     let guiones = document.getElementById("palabra").getElementsByTagName("span");
-    
     // Verificar si la letra existe o no
     if(palabra.toLowerCase().includes(letra.toLowerCase())){
-
+        puntos += 1;
+        actualizarPuntaje();
         // Sustituir la letra en cada espacio donde exista
         for(let i = 0; i < palabra.length; i++){
             if(letra.toLowerCase() == palabra[i].toLowerCase()){
                 guiones[i].textContent = letra.toUpperCase();
             }
-        puntos += 1;
         }
     }else{
         turno -= 1;
+        console.log(turno)
         actualizarTurno();
         cambiarImagen();
     }   
-        
     comprobarfin();
 }
 
@@ -180,24 +200,32 @@ function verificarSpans() {
 * Función que verifica si se debe finalizar el juego
 */
 function comprobarfin(){
-    // Evalúa si no quedan letras por adivinar o si no quedan turnos
+    let acertar = true;
     if(verificarSpans() == false || turno == 0){
+        deshabilitarBotonesLetras();
         mostrarFondoOscuro();
         let popup = document.getElementById("popup");
         popup.style.display = "block";
+        mostrarFondoOscuro();
 
         let palabraCorrecta = document.getElementById("palabraCorrecta");
         palabraCorrecta.textContent = palabra;
 
         let msgFinal = document.getElementById("msgFinal");
+
         if(turno === 0){
+            acertar = false;
             msgFinal.textContent = "Intenta de Nuevo";
+            document.getElementById("puntajeFinal").textContent = puntos;
         }
         else{
-            msgFinal.textContent = "¡Felicidades!\n\nHaz adivinado";
             puntos += 20;
+            actualizarPuntaje();
+            msgFinal.textContent = "¡Felicidades!\n\nHaz adivinado";
+            document.getElementById("puntajeFinal").textContent = puntos;
         }
-
+        localStorage.removeItem("partida");
+        llenarLocalStorage(puntos, acertar);
     }
 }
 
@@ -212,14 +240,7 @@ function actualizarTurno(){
     }
 }
 
-<<<<<<< Updated upstream
-// Función que hace desaparecer los botones al seleccionarlos
-function desaparecerBoton(){
 
-}
-
-//jugador {nombre: a; puntaje: a; acierto: }
-=======
 /*
 * Función que hace desaparecer los botones al seleccionarlos
 * @param letra, define la letra que fue seleccionada mediante el boton
@@ -287,4 +308,4 @@ function deshabilitarBotonesLetras() {
         boton.disabled = true;
     });
 }
->>>>>>> Stashed changes
+
