@@ -35,3 +35,16 @@ function mostrarInstruccion2() {
     ventanaContenedor.style.display = "block";
 }
 
+// class Jugador {
+//     constructor(nombre, puntaje, aciertos) {
+//         this.nombre = nombre;
+//         this.puntaje = puntaje;
+//         this.aciertos = aciertos;
+//     }    
+
+//     verificarJugador(nombre) {
+//         if(nombre = ) {
+//             console.log("Este nombre ya se encuentra en la tabla")
+//         }
+//     }
+// }
