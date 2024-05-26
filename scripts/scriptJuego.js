@@ -65,9 +65,29 @@ document.getElementById("Reintentar").addEventListener("click", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function(){
-    palabra = obtenerPalabra();
-    establecerGuiones(palabra);
-    actualizarTurno();
+    // Verificar si hay datos de partida en el localStorage
+    let partidaGuardada = localStorage.getItem("partida");
+    document.getElementById("nombre").textContent = JSON.parse(sessionStorage.getItem("jugador")).nombre;
+
+    if (partidaGuardada) {
+        // Si hay datos de partida, cargarlos
+        let partida = JSON.parse(partidaGuardada);
+        palabra = partida.palabra;
+        categoria = partida.categoria;
+        document.getElementById("categoria").textContent = categoria;
+
+        // Restaurar la partida en la interfaz
+        establecerGuiones(palabra);
+        actualizarTurno();
+        actualizarPuntaje();
+    } else {
+        // Si no hay datos de partida, iniciar una nueva partida
+        palabra = obtenerPalabra();
+        establecerGuiones(palabra);
+        actualizarTurno();
+        localStorage.setItem("partida", JSON.stringify({palabra: palabra, categoria: categoria}));
+    }
+    console.log(palabra)
 });
 
 // Funcion para obtener una palabra aleatoria de una lista
@@ -82,9 +102,6 @@ function obtenerPalabra(){
     // Obtener la categoría en el índice
     categoria = claves[indexCategoria];
     document.getElementById("categoria").textContent = categoria;
-
-    actualizarPuntaje();
-    document.getElementById("nombre").textContent = JSON.parse(sessionStorage.getItem("jugador")).nombre;
 
 
     // Evaluar el valor de la categoría obtenida para escoger la palabra
@@ -112,7 +129,6 @@ function establecerGuiones(palabra){
 function verificarLetra(letra){
     // Se obtienen los span donde se colocarán las letras si existen
     let guiones = document.getElementById("palabra").getElementsByTagName("span");
-    
     // Verificar si la letra existe o no
     if(palabra.toLowerCase().includes(letra.toLowerCase())){
         puntos += 1;
@@ -182,6 +198,7 @@ function comprobarfin(){
             msgFinal.textContent = "¡Felicidades!\n\nHaz adivinado";
             document.getElementById("puntajeFinal").textContent = puntos;
         }
+        localStorage.removeItem("partida");
         llenarLocalStorage(puntos, acertar);
     }
 }

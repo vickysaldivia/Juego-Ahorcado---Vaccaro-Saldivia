@@ -24,6 +24,7 @@ document
     event.preventDefault();
     var jugadorInput = document.getElementById("jugador").value;
     var jugador = {nombre: jugadorInput, puntos: 0, palabras: 0};
+    localStorage.removeItem("partida");
     sessionStorage.setItem("jugador", JSON.stringify(jugador));
 
       window.location.href = "juego.html";
@@ -46,7 +47,7 @@ function actualizarTabla () {
     let jugadores = [];
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if (key !== 'jugador') {
+        if (key !== 'jugador' || key !== 'partida') {
             let jugador = JSON.parse(localStorage.getItem(key));
             jugadores.push(jugador);
         }
