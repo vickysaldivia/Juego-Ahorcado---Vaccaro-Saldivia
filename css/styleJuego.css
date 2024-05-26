@@ -4,6 +4,8 @@
     --blanco: #ffffff;
     --negro: #000000;
     --grisClaro: #edeef6;
+    --gris: rgb(128, 128, 128);
+    
 }
 
 /* Globales */
@@ -33,127 +35,160 @@ h1, h2, h3, p {
 
 /* Globales -------------------------------- */
 
-
-
-
-
-#footer {
-    background: rgb(0, 0, 0);
-    padding: 10px;
-    text-align: center;
-    max-height: 5.5rem;
-    color: white;
-    width: 100%;
-}
-
-/* h1 { PENDIENTE DE ARRGLAR
-    margin: 0;
-} */
-
-/* Pantalla de juego */
-#pantallaJuego {
-    margin: 0;
-    background-color: white;
-    border: 2px gray;
-    border-style: inset;
+/* Centra el contenido */
+.contenedor { 
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+} 
+.centrar {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    width: 80%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
 }
+/* Centra el contenido --------------------- */
 
-#recuadroSuperior {
+/* Utilidades */
+.flexEnd {
+    display: flex;
+    justify-content: flex-end;
+}
+/* Utilidades ------------------------------ */
+
+/* Header */
+.header {
+    background-color: var(--negro);
+    color: var(--blanco);
+    width: 100%;
+}
+.header__contenido {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-#botones-container {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 10px;
-
     justify-content: center;
     align-items: center;
 }
-
-/* button { */
-    /* color: white;
-    background-color: black;
-    border: none;
-    width: 50px; 
-    height: 50px; 
-    cursor: pointer;
+.header__titulo {
+    margin: 1rem 0 0 0 ;
+}
+.header__intentos {
     font-size: 2rem;
-    font-weight: bold;
-    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+
+/* Pantalla del juego */
+#pantallaJuego {
+    margin: 3rem;
+    background-color: var(--blanco);
+    border: 2px solid var(--gris);
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 0.4fr 0.2fr 0.15fr 0.25fr; 
+}
+@media (min-width: 768px) {
+    #pantallaJuego {
+        margin-top: 5rem;
+        padding: 2rem;
+        width: 80%;
+        height: unset;
+    }
+}
+/* imagen container */
+.imagenAhorcado-container {
+    grid-row: 1/2;
     display: flex;
     justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-} */
+    
 
+}
 #ImagenAhorcado {
     position:relative;
-    max-width: 40%;
+    min-width: 50%;
+    width: 80%;
     margin-bottom: 2px;
-    border: outset
+    border: 2px solid var(--negro);
 }
 
-#acierto {
+
+/* info juego */
+.infoJuego {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    margin-bottom: 1rem;
+}
+.infoJuego__titulo {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+.infoJuego__texto {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 1rem;
+}
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    cursor: pointer;
+}
+.boton { 
+    color: white;
+    background-color: black;
+    border: none;
+    padding: .5rem;
+    font-size: 2.5rem;
+    margin-bottom: .8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Espacio de la palabra a adivinar */
+
+#palabra {
+    padding: .8rem;
+    margin-top: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid black;
+   
+}
+
+#palabra span {
+    vertical-align: bottom;
+    font-size: 2rem;
+    display: inline-block;
+    text-decoration: underline;
+    margin: 0 5px;
+} 
+/* espacio de la palabra a adivinar ----------------------------- */
+
+/*
+#recuadroInferior {
+    text-align: center;
+    width: 100%;
+}
+
+
+/* #acierto {
     text-align: center;
     min-height: 24px;
     font-size: 3rem;
     padding: 2px;
     margin:0;
     font-style: italic;
-}
-
-#recuadroMedio {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-#palabra {
-    margin: 0;
-    padding: 8px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-    border: 2px solid black;
-    margin-bottom: 20px;
-    width: 97%;
-}
-
-#palabra span {
-    vertical-align: bottom;
-    font-size: 2rem;
-    width: auto;
-    display: inline-block;
-    text-decoration: underline;
-    margin: 0 5px;
-}
-
-#recuadroInferior {
-    text-align: center;
-    width: 100%;
-}
-
-.rojo {
-    color: red;
-}
-.verde {
-    color: green;
-}
-
+} */
+/*
 #fondoOscuro {
     position: fixed;
     top: 0;
@@ -181,7 +216,7 @@ h1, h2, h3, p {
 
 #finPartida{
     font-size: 3rem;
-
+    
     padding: 6px;
     margin-bottom: 12px;
     text-align: center;
@@ -215,5 +250,22 @@ h1, h2, h3, p {
     margin: 10px;
 }
 #Reintentar{
-    margin: 10px;
+        margin: 10px;
+}
+
+#footer {
+    background: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    max-height: 5.5rem;
+    color: white;
+    width: 100%;
+} */
+
+/* h1 { PENDIENTE DE ARRGLAR
+    margin: 0;
+} */
+
+.motivacion {
+    display:none;
 }
