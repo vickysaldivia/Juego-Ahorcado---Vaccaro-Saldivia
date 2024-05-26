@@ -136,7 +136,7 @@ h1 {
 }
 .popup {
     width: 40%;
-    display:inline-block;
+    display: none;
     position:fixed;
     top: 40%;
     left: 50%;
