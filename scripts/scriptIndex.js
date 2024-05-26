@@ -40,6 +40,9 @@ document
 
       window.location.href = "juego.html";
 });
+document.getElementById("regresarInicio").addEventListener("click", function() {
+    window.location.href = "index.html";
+});
 
 
 function formularioJugador() {

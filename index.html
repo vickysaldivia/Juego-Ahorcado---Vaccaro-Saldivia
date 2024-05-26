@@ -96,7 +96,6 @@
                 <li>Tienes 6 intentos antes de que tu muñequito muera</li>
                 <li>Por cada letra acertada ganas +1 punto</li>
                 <li>Por cada palabra acertada ganas +20 puntos</li>
-                <li>Antes de comenzar debes escoger una categoría de tu preferencia</li>
                 <li>¡No olvides poner tu nombre para encontrarte en la lista de ganadores!</li>
             </ol>
         </div> <!--  finaliza .ventana  -->
@@ -112,17 +111,16 @@
             <h1 class="titulo__ventana">Bienvenid@:</h1>
             <div class="formulario__info">
                 <label class="etiquetaNombre">Nombre del Jugador</label>
-                <input type="text" id="jugador" placeholder="Ingresa tu nombre" class="inputNombre">
+                <input type="text" id="jugador" placeholder="Ingresa tu nombre" class="inputNombre" required/>
             </div>
             <br>
             <div class="formulario__boton">
-                <button class="formulario__regresar boton"   id="ocultarVentana" onclick="ocultar()">
+                <button class="formulario__regresar boton"   id="regresarInicio"">
                     regresar
-                </button>
-                <input type="submit" value="continuar" class="boton">
-
+                </button> 
+                <input type="submit" value="continuar" id="continuar" class="boton">
             </div>
-        </form>   
+        </form>  
 
     </div> <!-- finaliza .ventanaContenedor -->
     

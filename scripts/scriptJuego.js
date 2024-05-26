@@ -31,6 +31,7 @@ const categorias = {
         "Polonia", "Ucrania", "Rusia", "China", "Japon", "Corea del Sur", "India", 
         "Australia", "Nueva Zelanda", "Sudafrica", "Egipto", "Nigeria", "Kenia"
     ],
+    
     "ADJETIVOS": [
         "Alegre", "Triste", "Rapido", "Lento", "Hermoso", "Feo", "Alto", "Bajo", 
         "Gordo", "Delgado", "Inteligente", "Tonto", "Fuerte", "Debil", "Joven", 
@@ -41,6 +42,7 @@ const categorias = {
         "Limpio", "Sucio", "Famoso", "Desconocido", "Feliz", "Infeliz", 
         "Sabroso", "Insípido"
     ],
+
     "DEPORTES": [
         "Fútbol", "Baloncesto", "Tenis", "Beisbol", "Voleibol", "Natacion", 
         "Atletismo", "Boxeo", "Rugby", "Cricket", "Golf", "Ciclismo", "Hockey", 
@@ -51,6 +53,7 @@ const categorias = {
         "Remo", "Rodeo", "Rugby", "Skateboarding", "Softball", "Squash", 
         "Sumo", "Tenis de Mesa", "Tiro con Arco", "Trampolin", "Triatlon"
     ],
+
     "VERBOS": [
         "Aceptar", "Acompañar", "Admirar", "Adivinar", "Ajustar", "Alojar", 
         "Analizar", "Añadir", "Apoyar", "Apreciar", "Aprobar", "Arreglar", 
@@ -61,7 +64,33 @@ const categorias = {
         "Crear", "Cruzar", "Describir", "Desear", "Detectar", "Descubrir", 
         "Discutir", "Diseñar", "Distribuir", "Elegir", "Entregar", "Establecer", 
         "Examinar", "Experimentar"
-    ]
+    ],
+
+    "INSTRUMENTOS": [
+        "Guitarra", "Piano", "Violin", "Bateria", "Flauta", "Trompeta", 
+        "Saxofon", "Clarinete", "Oboe", "Arpa", "Bajo", "Cajon", "Tuba", 
+        "Xilofono", "Castañuelas", "Bandoneon", "Acordeon", "Banjo", 
+        "Tambor", "Timbal", "Maracas", "Sitar", "Lira", "Mandolina", 
+        "Ukelele", "Trombon", "Harmonica", "Cuatro", "Balalaika", "Gaita"
+    ],
+
+    "ANIMALES": [
+        "Perro", "Gato", "Elefante", "Leon", "Tigre", "Jirafa", "Cebra", 
+        "Hipopotamo", "Rinoceronte", "Cocodrilo", "Panda", "Koala", 
+        "Canguro", "Ornitorrinco", "Delfin", "Ballena", "Tiburon", 
+        "Caballo", "Burro", "Vaca", "Oveja", "Cerdo", "Gallina", "Pato", 
+        "Ganso", "Pavo", "Pavo Real", "Aguila", "Halcon", "Buitre"
+    ],
+
+    "PELICULAS": [
+        "Titanic", "Avatar", "Gladiador", "Inception", "Matrix", 
+        "Interstellar", "Jumanji", "Tiburón", "Rocky", "Alien", 
+        "Grease", "Amelie", "Cisne Negro", "Memento", "Coraline", 
+        "Django", "Moonlight", "Casablanca", "Argo", "Chicago", 
+        "Babel", "Sahara", "Volcano", "Cleo", "Frozen", 
+        "Ratatouille", "Nemo", "Coco", "Shrek", "Aladdin"
+    ],
+
 };
 
 
@@ -101,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function(){
         palabra = obtenerPalabra();
         establecerGuiones(palabra);
         actualizarTurno();
+        actualizarPuntaje();
         localStorage.setItem("partida", JSON.stringify({palabra: palabra, categoria: categoria}));
     }
     console.log(palabra)
