@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUEGO DEL AHORCADO</title>
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/styleIndex.css" as="style">
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="contenedor">
+        <h1 class="titulo">El Ahorcado </h1>  
+        <p class="subtitulo">Victoria Saldivia y Giuseppe Vaccaro</p>         
+    </header>
+   
+    <section class="inicio">
+        <div class="contenidoInicio">
+            <div class="botonesInicio">
+                <button class="boton comienzaJuego" onclick="mostrarFondoOscuro(); formularioJugador(); mostrarInstruccion2()">
+                    Empezar Juego
+                </button>
+                <button class="abrirInstruccion boton" onclick="mostrarInstruccion(); mostrarFondoOscuro()">
+                    Instrucciones
+                </button>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+    <div class="ventanaContenedor" id="ventanaContenedor">
+
+        <div class="ventana">
+            <h1 class="titulo__ventana">Instrucciones</h1>
+            <ol class="instruccion__ventana">
+                <li>Tienes 8 intentos antes de que tu muñequito muera</li>
+                <li>Por cada letra acertada ganas +1 punto</li>
+                <li>Por cada palabra acertada ganas +20 puntos</li>
+                <li>Antes de comenzar debes escoger una categoría de tu preferencia</li>
+                <li>Y por último, no olvides poner tu nombre para encontrarte en la lista de ganadores!!!</li>
+            </ol>
+        </div> <!--  finaliza .ventana  -->
+        <div class="flexEnd">
+            <button class="boton__regresar boton"   id="ocultarVentana" onclick="ocultar()">
+                regresar
+            </button>
+        </div>
+    </div> <!-- finaliza .ventanaContenedor -->
+
+    <div class="ventanaContenedor" id="ventanaContenedor2">
+        <form id="datosJugador" class="formulario">
+            <h1 class="titulo__ventana">Bienvenid@:</h1>
+            <div class="formulario__info">
+                <label>Nombre del Jugador</label>
+                <input type="text" id="jugador" placeholder="Ingresa tu nombre">
+            </div>
+            <br>
+            <div class="flexEnd">
+                <input type="submit" value="continuar" class="boton formulario__boton">
+            </div>
+        </form>   
+
+    </div> <!-- finaliza .ventanaContenedor -->
+    
+    <div id = "fondoOscuro">
+
+    </div>
+
+
+    <script src="scripts/scriptIndex.js"></script>
+</body>
+</html>
