@@ -265,3 +265,12 @@ button {
 .motivacion {
     display:none;
 }
+
+.boton {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.boton.disappear {
+    transform: scale(0);
+    opacity: 0;
+}
